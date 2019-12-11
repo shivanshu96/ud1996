@@ -1,0 +1,48 @@
+<div class="card col-lg-12 mt-4">
+        <div class="alert alert-info" *ngIf="status==='successfull'">
+                Booking Successfull.
+              </div>
+              <div class="alert alert-danger" *ngIf="status==='unsuccessfull'">
+                    Booking Failed.
+                  </div>   
+    <img class="card-img-top" [src]='vehicle.imageUrl' [alt]="vehicle.name">
+
+    <div class="card-body">
+        <div class="row">
+            <h4 class="card-title col-6">{{vehicle.name}}</h4>
+            <label class="col-6 text-right text-maroon font-size-20">
+                <h5>Per Day Charges: </h5>${{vehicle.price}}
+            </label>
+        </div>
+        <div class="card-text">
+            <div class="row">
+                <div class="col-6">
+                    <h5>Car Type: {{vehicle.type}}</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <label for="startdate">Enter starting date</label>
+                    <input type="date" date-format="yyy/mm/dd" id="datepicker" name="start"
+                       [(ngModel)]="start">
+
+                </div>
+
+                <div class="col-6">
+                    <label for="Days">Enter No of days vehicle need to be rented for</label>
+                    <input type="number" name="days" placeholder="Enter no of days" [(ngModel)]="days">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col d-flex justify-content-end">
+                    <button class="btn btn-primary text-white" (click)="confirmBooking(vehicle.vehicleId)">
+                        <i class="material-icons">
+                            directions_car
+                        </i>
+                        <label id="book">ConfirmBooking</label>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
